@@ -1,7 +1,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { withTRPC } from '@trpc/next';
-import type { AppRouter } from '@/server/router';
+import type { AppRouter } from '@/server/routers/_app';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { APP_URL } = publicRuntimeConfig;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
